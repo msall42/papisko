@@ -1,0 +1,5 @@
+# Copier vers .dev.vars. Ne jamais committer ce fichier local.
+# Générer un mot de passe aléatoire et son hash avec npm run admin:password.
+ADMIN_PASSWORD_HASH=""
+# Même commande : secret aléatoire pour pseudonymiser les IP.
+RATE_LIMIT_SECRET=""

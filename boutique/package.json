@@ -1,0 +1,36 @@
+{
+  "name": "papisko",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "dev": "npm run build && wrangler pages dev dist --port 8788",
+    "dev:ui": "vite --host 127.0.0.1",
+    "db:migrate": "wrangler d1 migrations apply papisko --local",
+    "db:seed": "wrangler d1 execute papisko --local --file seeds/demo.sql",
+    "test": "node --import tsx tests/domain.test.ts",
+    "test:integration": "node scripts/integration.mjs",
+    "admin:password": "node scripts/password.mjs",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "test:browser": "node scripts/browser.mjs",
+    "format": "prettier --write src server functions scripts tests docs README.md"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "preact": "^10.26.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261025.1",
+    "@types/leaflet": "^1.9.20",
+    "playwright-core": "^1.64.1",
+    "prettier": "3.9.10",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.6",
+    "wrangler": "^4.45.0"
+  }
+}
